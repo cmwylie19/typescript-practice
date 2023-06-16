@@ -3,6 +3,7 @@ var ContactStatus;
     ContactStatus["Online"] = "Online";
     ContactStatus["Offline"] = "Offline";
 })(ContactStatus || (ContactStatus = {}));
+// Person class with a generic type of IPerson or IAnimal that has a generic type of IPerson
 class Person {
     thing;
     constructor(thing) {
@@ -18,6 +19,23 @@ class Person {
         console.log(this.thing.name);
     }
 }
+let ownerProperty = "owner";
+let arch = {
+    name: "Archie",
+    age: 2,
+    type: "Dog",
+    owner: {
+        name: "Casey Wylie",
+        age: 34,
+        city: "Miami",
+        neighborhood: "Brickell"
+    }
+};
+console.log(`${arch.name}'s owner lives in ${arch[ownerProperty]?.city}.`);
+function getValue(source, propertyName) {
+    return source[propertyName];
+}
+console.log("Name of arch" + getValue(arch, "age"));
 let x = 5;
 let personName = "John Doe";
 let me = {
