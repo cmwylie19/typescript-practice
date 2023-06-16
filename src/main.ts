@@ -32,6 +32,12 @@ type PersonQuery = Partial<Record<string,number>>;
 type PersonQuery2 = Omit<IPerson, "name">;
 // Pick allows you to pick only what you want
 type PersonQuery3 = Pick<IPerson, "name" | "age">;
+// Require all properties of a certain type
+type PersonQuery4 = Required<PersonQuery3>;
+// Map type - Makes all of the PersonQuery4 properties optional
+type PersonQuery5 = {
+    [P in keyof PersonQuery4]?: PersonQuery4[P];
+};
 
 // Person class with a generic type of IPerson or IAnimal that has a generic type of IPerson
 class Person<T extends IPerson, T1 extends IAnimal<IPerson>> {
